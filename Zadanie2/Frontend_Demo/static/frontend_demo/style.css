@@ -4,36 +4,12 @@ body {
     margin: 0;
     padding: 0;
 }
-header {
-    background-color: #2b6cb0;
-    color: white;
-    text-align: center;
-    padding: 1em;
-}
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-nav a:hover {
-    text-decoration: underline;
-}
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    margin: 0;
-    padding: 0;
-}
 
 header {
     background-color: #2b6cb0;
     color: white;
     text-align: center;
     padding: 1em;
-}
-
-header h1 {
-    font-size: 32px;
 }
 
 nav {
