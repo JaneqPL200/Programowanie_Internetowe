@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskBoard — lista zadań</title>
+
+    <link rel="stylesheet" href="{% static 'Tasks/style.css' %}">
+    <script src="{% static 'Tasks/js/app.js' %}" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="page-header">
+            <p class="eyebrow">ORGANIZACJA I PLANOWANIE</p>
+            <h1>TaskBoard</h1>
+            <p class="subtitle">
+                Zapisuj zadania, śledź postępy i realizuj swoje cele.
+            </p>
+        </header>
+
+        <section class="panel">
+            <h2>Nowe zadanie</h2>
+
+            <form id="task-form">
+                <label for="task-title">Treść zadania</label>
+
+                <div class="form-row">
+                    <input
+                        type="text"
+                        id="task-title"
+                        name="title"
+                        maxlength="200"
+                        placeholder="Np. przygotować projekt Django"
+                        required
+                    >
+
+                    <button type="submit" class="primary-button">
+                        Dodaj zadanie
+                    </button>
+                </div>
+            </form>
+
+            <p id="message" class="message" role="status"
+               aria-live="polite"></p>
+        </section>
+
+        <section class="stats" aria-label="Podsumowanie zadań">
+            <article class="stat-card">
+                <span class="stat-label">Wszystkie zadania</span>
+                <strong id="total-count">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-label">Ukończone</span>
+                <strong id="completed-count">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-label">Do zrobienia</span>
+                <strong id="active-count">0</strong>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="list-header">
+                <div>
+                    <h2>Twoje zadania</h2>
+                    <p class="subtitle">Zarządzaj swoją listą.</p>
+                </div>
+
+                <label class="filter-control" for="task-filter">
+                    Filtr:
+                    <select id="task-filter">
+                        <option value="all">Wszystkie</option>
+                        <option value="active">Aktywne</option>
+                        <option value="completed">Ukończone</option>
+                    </select>
+                </label>
+            </div>
+
+            <ul id="task-list" class="task-list"></ul>
+
+            <p id="empty-state" class="empty-state" hidden>
+                Brak zadań do wyświetlenia.
+            </p>
+        </section>
+
+        <footer>
+            TaskBoard · Django + JavaScript
+        </footer>
+    </main>
+</body>
+</html>
